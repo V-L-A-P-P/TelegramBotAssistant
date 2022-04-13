@@ -1,0 +1,131 @@
+2022-04-13 22:31:56,113: Infinity polling exception: 'MessagesHandler' object has no attribute 'PhrasesGenerator'
+2022-04-13 22:31:56,256: Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 617, in infinity_polling
+    self.polling(none_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 664, in polling
+    self.__threaded_polling(non_stop, interval, timeout, long_polling_timeout, allowed_updates)
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 726, in __threaded_polling
+    raise e
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 686, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\util.py", line 135, in raise_exceptions
+    raise self.exception_info
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\util.py", line 87, in run
+    task(*args, **kwargs)
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\res2.py", line 872, in answer_to_text
+    messages_handler.reply_to_text(message)
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\res2.py", line 537, in reply_to_text
+    BOT.send_message(str(message.chat.id), self.PhrasesGenerator.PhrasesGenerator.get_hello_text_without_data())
+AttributeError: 'MessagesHandler' object has no attribute 'PhrasesGenerator'
+
+2022-04-13 22:34:07,237: User's personal data received (2008767674):
+{'deleted': False, 'firstname': 'Eyye', 'lastname': 'Yeye', 'subdivision': 'Ryryr', 'email': '. @', 'phonenumber': '7373'}
+2022-04-13 22:34:07,250: Infinity polling exception: name 'myFileWorker' is not defined
+2022-04-13 22:34:07,252: Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 617, in infinity_polling
+    self.polling(none_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 664, in polling
+    self.__threaded_polling(non_stop, interval, timeout, long_polling_timeout, allowed_updates)
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 726, in __threaded_polling
+    raise e
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 686, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\util.py", line 135, in raise_exceptions
+    raise self.exception_info
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\util.py", line 87, in run
+    task(*args, **kwargs)
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\res2.py", line 287, in get_phone_number
+    self.finish_process_new_user(message, new_user_dict, add_user_to_problems_f, user_get_f)
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\res2.py", line 297, in finish_process_new_user
+    user_get_f(message)
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\res2.py", line 401, in get_new_problem
+    BOT.send_photo(str(message.chat.id), PhrasesGenerator.PhrasesGenerator.get_text_with_input_suggestion()[1],
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\PhrasesGenerator.py", line 83, in get_text_with_input_suggestion
+    photo = myFileWorker.load_image("photo_instruction.jpg")
+NameError: name 'myFileWorker' is not defined
+
+2022-04-13 22:34:48,139: Infinity polling exception: name 'DATA_ITEMS' is not defined
+2022-04-13 22:34:48,142: Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 617, in infinity_polling
+    self.polling(none_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 664, in polling
+    self.__threaded_polling(non_stop, interval, timeout, long_polling_timeout, allowed_updates)
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 726, in __threaded_polling
+    raise e
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 686, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\util.py", line 135, in raise_exceptions
+    raise self.exception_info
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\util.py", line 87, in run
+    task(*args, **kwargs)
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\res2.py", line 872, in answer_to_text
+    messages_handler.reply_to_text(message)
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\res2.py", line 534, in reply_to_text
+    BOT.send_message(str(message.chat.id), PhrasesGenerator.PhrasesGenerator.get_hello_text_with_data(str(message.chat.id)))
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\PhrasesGenerator.py", line 59, in get_hello_text_with_data
+    data_of_users[chat_id][DATA_ITEMS[0]] + "\n" + \
+NameError: name 'DATA_ITEMS' is not defined
+
+2022-04-13 23:15:59,247: Infinity polling exception: name 'myFileWorker' is not defined
+2022-04-13 23:15:59,250: Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 617, in infinity_polling
+    self.polling(none_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 664, in polling
+    self.__threaded_polling(non_stop, interval, timeout, long_polling_timeout, allowed_updates)
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 726, in __threaded_polling
+    raise e
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 686, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\util.py", line 135, in raise_exceptions
+    raise self.exception_info
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\util.py", line 87, in run
+    task(*args, **kwargs)
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\res2.py", line 873, in answer_to_text
+    messages_handler.reply_to_text(message)
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\res2.py", line 535, in reply_to_text
+    BOT.send_message(str(message.chat.id), PhrasesGenerator.PhrasesGenerator.get_hello_text_with_data(str(message.chat.id)))
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\PhrasesGenerator.py", line 59, in get_hello_text_with_data
+    data_of_users = myFileWorker.load_data_of_users()
+NameError: name 'myFileWorker' is not defined
+
+2022-04-13 23:29:13,241: User's personal data received (2008767674):
+{'deleted': False, 'firstname': 'Tye', 'lastname': 'Eye', 'subdivision': 'Ywyw', 'email': '. @', 'phonenumber': '2662'}
+2022-04-13 23:29:15,560: Problem added as number 0 by user 2008767674
+ {'issolved': False, 'next_reminder': 1649882475, 'date': 1649881755, 'text': 'Gdgd', 'number': 0, 'photos': [], 'howPointsToSendToOperator': 3}
+2022-04-13 23:29:19,377: Exception in sending to the operator via telegram:
+A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+Traceback (most recent call last):
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\res2.py", line 77, in send_to_operator
+    BOT.send_message(operator_data["chat_id"], text)
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 969, in send_message
+    apihelper.send_message(
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\apihelper.py", line 269, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\apihelper.py", line 157, in _make_request
+    json_result = _check_result(method_name, result)
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\apihelper.py", line 184, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2022-04-13 23:29:28,217: Photo by For 2008767674
+2022-04-13 23:29:28,421: Photo by For 2008767674
+2022-04-13 23:29:28,429: Photo by For 2008767674
+2022-04-13 23:29:32,431: Problem added as number 1 by user 2008767674
+ {'issolved': False, 'next_reminder': 1649882492, 'date': 1649881772, 'text': '3673', 'number': 1, 'photos': [], 'howPointsToSendToOperator': 3}
+2022-04-13 23:29:35,623: Exception in sending to the operator via telegram:
+A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+Traceback (most recent call last):
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\res2.py", line 77, in send_to_operator
+    BOT.send_message(operator_data["chat_id"], text)
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 969, in send_message
+    apihelper.send_message(
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\apihelper.py", line 269, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\apihelper.py", line 157, in _make_request
+    json_result = _check_result(method_name, result)
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\apihelper.py", line 184, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
