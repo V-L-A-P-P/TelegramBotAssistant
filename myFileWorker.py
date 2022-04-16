@@ -1,6 +1,12 @@
 import os
 import json
 import traceback
+import logging
+
+logging.basicConfig(
+    format='%(asctime)s: %(message)s',
+    level=logging.INFO,
+    filename='sample.log')
 
 
 class MyFileWorker:

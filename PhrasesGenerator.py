@@ -1,5 +1,10 @@
 import MyFileWorker
+import logging
 
+logging.basicConfig(
+    format='%(asctime)s: %(message)s',
+    level=logging.INFO,
+    filename='sample.log')
 DATA_ITEMS = MyFileWorker.MyFileWorker.load_data_items_const()
 
 
