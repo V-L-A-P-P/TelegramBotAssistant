@@ -582,3 +582,40 @@ Traceback (most recent call last):
   File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\apihelper.py", line 184, in _check_result
     raise ApiTelegramException(method_name, result, result_json)
 telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2022-04-30 23:42:15,584: Photo by For 2008767674
+2022-04-30 23:42:25,681: User's personal data received (2008767674):
+{'deleted': False, 'firstname': 'Гш', 'lastname': 'Шш', 'subdivision': 'Шш', 'email': '. @', 'phonenumber': '7337'}
+2022-04-30 23:42:31,392: Problem added as number 0 by user 2008767674
+ {'issolved': False, 'next_reminder': 1651352070, 'date': 1651351350, 'text': 'Ккггк', 'number': 0, 'photos': [], 'howPointsToSendToOperator': 3}
+2022-04-30 23:42:35,602: Exception in sending to the operator via telegram:
+A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+Traceback (most recent call last):
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\ToOperatorByTelegramSender.py", line 25, in send_to_operator
+    bot.send_message(operator_data["chat_id"], text)
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 969, in send_message
+    apihelper.send_message(
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\apihelper.py", line 269, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\apihelper.py", line 157, in _make_request
+    json_result = _check_result(method_name, result)
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\apihelper.py", line 184, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2022-04-30 23:42:42,787: Photo by For 2008767674
+2022-04-30 23:42:43,112: Photo by For 2008767674
+2022-04-30 23:42:45,147: Problem added as number 1 by user 2008767674
+ {'issolved': False, 'next_reminder': 1651352085, 'date': 1651351365, 'text': 'Окга', 'number': 1, 'photos': [], 'howPointsToSendToOperator': 3}
+2022-04-30 23:42:48,322: Exception in sending to the operator via telegram:
+A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+Traceback (most recent call last):
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\ToOperatorByTelegramSender.py", line 25, in send_to_operator
+    bot.send_message(operator_data["chat_id"], text)
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 969, in send_message
+    apihelper.send_message(
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\apihelper.py", line 269, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\apihelper.py", line 157, in _make_request
+    json_result = _check_result(method_name, result)
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\apihelper.py", line 184, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found

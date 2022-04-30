@@ -1,11 +1,11 @@
-import MyFileWorker
+import myFileWorker
 import logging
 
 logging.basicConfig(
     format='%(asctime)s: %(message)s',
     level=logging.INFO,
     filename='sample.log')
-DATA_ITEMS = MyFileWorker.MyFileWorker.load_data_items_const()
+DATA_ITEMS = myFileWorker.load_data_items_const()
 
 
 class PhrasesGenerator:
@@ -19,8 +19,8 @@ class PhrasesGenerator:
     @staticmethod
     def get_new_problem_text_for_operator(chat_id, date_key):
         """Generates and returns text to describe the new problem to the operator."""
-        problems_of_users = MyFileWorker.MyFileWorker.load_problems_of_users()
-        data_of_users = MyFileWorker.MyFileWorker.load_data_of_users()
+        problems_of_users = myFileWorker.load_problems_of_users()
+        data_of_users = myFileWorker.load_data_of_users()
         if chat_id in data_of_users and chat_id in problems_of_users:
             date_list = date_key.split(' ')
             text = date_list[0] + "\n" + date_list[1] \
@@ -40,8 +40,8 @@ class PhrasesGenerator:
     @staticmethod
     def get_reminder_text(chat_id, date_key):
         """Generates and returns text to remind the operator of outstanding tasks."""
-        problems_of_users = MyFileWorker.MyFileWorker.load_problems_of_users()
-        data_of_users = MyFileWorker.MyFileWorker.load_data_of_users()
+        problems_of_users = myFileWorker.load_problems_of_users()
+        data_of_users = myFileWorker.load_data_of_users()
         if chat_id in data_of_users and chat_id in problems_of_users:
             date_list = date_key.split(' ')
             text = "Напоминаем, что до сих пор не решена проблема:  \n" \
@@ -61,7 +61,7 @@ class PhrasesGenerator:
     @staticmethod
     def get_hello_text_with_data(chat_id):
         """Generates and returns a welcome text if user data has already been received."""
-        data_of_users = MyFileWorker.MyFileWorker.load_data_of_users()
+        data_of_users = myFileWorker.load_data_of_users()
         if chat_id in data_of_users:
             text = "Здравствуйте!\nВаши данные уже указаны:\n" + \
                    data_of_users[chat_id][DATA_ITEMS[0]] + "\n" + \
@@ -90,7 +90,7 @@ class PhrasesGenerator:
     def get_text_with_input_suggestion():
         """Generates and returns text asking for a description of the problem."""
         text = "Подробно опишите вашу проблему:"
-        photo = MyFileWorker.MyFileWorker.load_image("photo_instruction.jpg")
+        photo = myFileWorker.load_image("photo_instruction.jpg")
         return text, photo
 
     @staticmethod

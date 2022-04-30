@@ -1,6 +1,6 @@
 import smtplib
 import os
-import MyFileWorker
+import myFileWorker
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -30,7 +30,7 @@ class ToOperatorByEmailSender:
                 for photo in photos:
                     basename = os.path.basename(photo['name'])
                     part_file = MIMEBase('application', 'octet-stream; name="{}"'.format(basename))
-                    img = MyFileWorker.MyFileWorker.load_image(photo['name'])
+                    img = myFileWorker.load_image(photo['name'])
                     part_file.set_payload(img)
                     encoders.encode_base64(part_file)
                     msg.attach(part_file)

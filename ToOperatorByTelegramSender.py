@@ -1,5 +1,5 @@
 import logging
-import MyFileWorker
+import myFileWorker
 import telebot
 
 logging.basicConfig(
@@ -27,7 +27,7 @@ class ToOperatorByTelegramSender:
                     media = []
                     k = 0
                     for photo in photos:
-                        img = MyFileWorker.MyFileWorker.load_image(photo['name'])
+                        img = myFileWorker.load_image(photo['name'])
                         if k == 0:
                             media.append(telebot.types.InputMediaPhoto(img, caption=text))
                         else:
