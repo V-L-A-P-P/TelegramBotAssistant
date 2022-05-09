@@ -23,8 +23,9 @@ def load_data_of_users():
                         d = json.load(read_file)
                     return d
             else:
-                dump_data_of_users({})
-                return {}
+                d = load_data_of_users_backup()
+                dump_data_of_users(d)
+                return d
         except PermissionError as _ex:
             pass
 
@@ -75,8 +76,9 @@ def load_problems_of_users():
                         up = json.load(read_file)
                     return up
             else:
-                dump_problems_of_users({})
-                return {}
+                up = load_problems_of_users_backup()
+                dump_problems_of_users(up)
+                return up
 
         except PermissionError as _ex:
             pass
@@ -157,15 +159,13 @@ def load_counter_of_orders():
                         up = json.load(read_file)
                     return up
             else:
-                dump_counter_of_orders(0)
-                return 0
-
+                count = load_counter_of_orders_backup()
+                dump_counter_of_orders(count)
+                return count
 
         except PermissionError as _ex:
 
             pass
-
-
 
         except ValueError as _ex:
 
