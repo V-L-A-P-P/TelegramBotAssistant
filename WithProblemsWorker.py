@@ -6,7 +6,7 @@ import time
 import PhrasesGenerator
 import PhotosFromMessageGetter
 
-NEXT_REMINDER = 720
+NEXT_REMINDER = MyFileWorker.load_reminder_time()
 
 
 class WithProblemsWorker:

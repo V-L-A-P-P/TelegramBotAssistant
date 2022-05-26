@@ -1,6 +1,5 @@
 import os
 import json
-import traceback
 import logging
 
 logging.basicConfig(
@@ -207,8 +206,8 @@ def load_counter_of_orders_backup():
 def load_bot_token():
     while True:
         try:
-            if os.path.exists('bot_token.json'):
-                with open("bot_token.json", "r") as read_file:
+            if os.path.exists('Constants/TOKEN.json'):
+                with open("Constants/TOKEN.json", "r") as read_file:
                     bt = json.load(read_file)
                 return bt
             else:
@@ -222,7 +221,7 @@ def load_bot_token():
 def dump_bot_token(bt):
     while True:
         try:
-            with open("bot_token.json", "w") as write_file:
+            with open("Constants/TOKEN.json", "w") as write_file:
                 json.dump(bt, write_file)
             return
         except:
@@ -313,9 +312,17 @@ def dump_image(img, name):
             pass
 
 
+def load_reminder_time():
+    try:
+        with open("Constants/NEXT_REMINDER.json", 'r') as read_file:
+            return json.load(read_file)
+    except:
+        pass
+
+
 def load_data_items_const():
     try:
-        with open("DATA_ITEMS.json", 'r') as read_file:
+        with open("Constants/DATA_ITEMS.json", 'r') as read_file:
             return json.load(read_file)
     except:
         pass

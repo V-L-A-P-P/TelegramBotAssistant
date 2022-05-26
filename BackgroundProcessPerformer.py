@@ -11,8 +11,7 @@ logging.basicConfig(
     filename='sample.log')
 
 OPERATOR_DATA = MyFileWorker.load_data_of_operator()
-NEXT_REMINDER = 720
-OPERATOR_DATA = MyFileWorker.load_data_of_operator()
+NEXT_REMINDER = MyFileWorker.load_reminder_time()
 
 
 
