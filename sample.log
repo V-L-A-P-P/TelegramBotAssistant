@@ -355,3 +355,29 @@ Traceback (most recent call last):
 telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
 2022-05-20 01:03:22,209: Problem added as number 2 by user 2008767674
  {'issolved': False, 'next_reminder': 1652998522, 'date': 1652997802, 'text': 'sadf', 'number': 2, 'photos': [], 'howPointsToSendToOperator': 3}
+2022-05-24 21:36:34,124: User's personal data received (2008767674):
+{'deleted': False, 'firstname': '¿6‚„', 'lastname': '6‚„‚', 'subdivision': '√‚„‚', 'email': 'ÿ‚‚. @', 'phonenumber': '626'}
+2022-05-24 21:36:36,333: Problem added as number 0 by user 2008767674
+ {'issolved': False, 'next_reminder': 1653418116, 'date': 1653417396, 'text': '–‚‚', 'number': 0, 'photos': [], 'howPointsToSendToOperator': 3}
+2022-05-26 22:07:59,925: User's personal data received (2008767674):
+{'deleted': False, 'firstname': 'ÿÛ„Û', 'lastname': '√Û„Û', 'subdivision': '√Í„Í', 'email': '. @', 'phonenumber': '55'}
+2022-05-26 22:08:02,072: Problem added as number 0 by user 2008767674
+ {'issolved': False, 'next_reminder': 1653592091, 'date': 1653592081, 'text': ' ÓÓÍ', 'number': 0, 'photos': [], 'howPointsToSendToOperator': 3}
+2022-05-26 22:08:14,085: Photo by For 2008767674
+2022-05-26 22:08:14,405: Photo by For 2008767674
+2022-05-26 22:08:16,817: Problem added as number 1 by user 2008767674
+ {'issolved': False, 'next_reminder': 1653592106, 'date': 1653592096, 'text': ' ÓÓÍ', 'number': 1, 'photos': [], 'howPointsToSendToOperator': 3}
+2022-05-26 22:08:45,715: Photo by For 2008767674
+2022-05-26 22:08:46,482: Photo by For 2008767674
+2022-05-26 22:08:52,312: Problem added as number 2 by user 2008767674
+ {'issolved': False, 'next_reminder': 1653592142, 'date': 1653592132, 'text': 'ÀÍÍÎ', 'number': 2, 'photos': [], 'howPointsToSendToOperator': 3}
+2022-05-27 22:27:29,536: User's personal data received (2008767674):
+{'deleted': False, 'firstname': '6e6eyey', 'lastname': 'Ueye', 'subdivision': 'Uu3', 'email': '. @', 'phonenumber': '737'}
+2022-05-27 22:27:31,519: Problem added as number 0 by user 2008767674
+ {'issolved': False, 'next_reminder': 1653679661, 'date': 1653679651, 'text': 'Ydy', 'number': 0, 'photos': [], 'howPointsToSendToOperator': 3}
+2022-05-27 22:28:01,121: Photo by For 2008767674
+2022-05-27 22:28:01,546: Photo by For 2008767674
+2022-05-27 22:28:03,356: Problem added as number 1 by user 2008767674
+ {'issolved': False, 'next_reminder': 1653679693, 'date': 1653679683, 'text': 'H', 'number': 1, 'photos': [], 'howPointsToSendToOperator': 3}
+2022-05-27 22:28:17,504: Problem added as number 2 by user 2008767674
+ {'issolved': False, 'next_reminder': 1653679707, 'date': 1653679697, 'text': 'Ywy', 'number': 2, 'photos': [], 'howPointsToSendToOperator': 3}

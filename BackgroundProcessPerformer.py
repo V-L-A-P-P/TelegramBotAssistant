@@ -4,6 +4,7 @@ import ToOperatorByEmailSender
 import ToOperatorByTelegramSender
 import MyFileWorker
 import time
+import constants
 
 logging.basicConfig(
     format='%(asctime)s: %(message)s',
@@ -11,7 +12,7 @@ logging.basicConfig(
     filename='sample.log')
 
 OPERATOR_DATA = MyFileWorker.load_data_of_operator()
-NEXT_REMINDER = MyFileWorker.load_reminder_time()
+NEXT_REMINDER = constants.NEXT_REMINDER
 
 
 

@@ -1,11 +1,12 @@
 import MyFileWorker
 import logging
+import constants
 
 logging.basicConfig(
     format='%(asctime)s: %(message)s',
     level=logging.INFO,
     filename='sample.log')
-DATA_ITEMS = MyFileWorker.load_data_items_const()
+DATA_ITEMS = constants.DATA_ITEMS
 
 
 def get_info_text_for_operator():
