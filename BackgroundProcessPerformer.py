@@ -40,7 +40,7 @@ class BackgroundProcessPerformer:
             time.sleep(1)
             if not self.temporary_values_keeper.temp_values['isGetMessageMethodPerforming']:
                 self.with_problems_worker.update_problems_of_users()
-                self.with_data_worker.update_data_of_users()
+                self.with_data_worker.update_personal_users_data()
 
                 # If operator details are not specified.
                 if self.operator_id == "":
@@ -50,7 +50,7 @@ class BackgroundProcessPerformer:
 
                     for chat_id in list(self.with_problems_worker.problems_of_users):
 
-                        if self.with_data_worker.data_of_users[chat_id]['deleted']:
+                        if self.with_data_worker.personal_users_data[chat_id]['deleted']:
                             print(f"The operator deleted the user {chat_id} from the database")
                             logging.info(f"The operator deleted the user {chat_id} from the database")
                             self.with_data_worker.delete_user(chat_id)

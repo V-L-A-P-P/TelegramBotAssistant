@@ -1,6 +1,7 @@
 import os
 import json
 import logging
+import PathesKeeper
 
 logging.basicConfig(
     format='%(asctime)s: %(message)s',
@@ -8,56 +9,56 @@ logging.basicConfig(
     filename='sample.log')
 
 
-def load_data_of_users():
+def load_personal_users_data():
     while True:
         try:
-            if os.path.exists('data_of_users.json'):
+            if os.path.exists('personal_users_data.json'):
 
-                if os.path.getsize("data_of_users.json") == 0:
-                    d = load_data_of_users_backup()
-                    dump_data_of_users(d)
+                if os.path.getsize("personal_users_data.json") == 0:
+                    d = load_personal_users_data_backup()
+                    dump_personal_users_data(d)
                     return d
                 else:
-                    with open("data_of_users.json", "r") as read_file:
+                    with open("personal_users_data.json", "r") as read_file:
                         d = json.load(read_file)
                     return d
             else:
-                d = load_data_of_users_backup()
-                dump_data_of_users(d)
+                d = load_personal_users_data_backup()
+                dump_personal_users_data(d)
                 return d
         except PermissionError as _ex:
             pass
 
         except ValueError as _ex:
 
-            d = load_data_of_users_backup()
-            dump_data_of_users(d)
+            d = load_personal_users_data_backup()
+            dump_personal_users_data(d)
             return d
 
 
-def load_data_of_users_backup():
+def load_personal_users_data_backup():
     while True:
         try:
-            if os.path.exists('data_of_users_backup.json'):
+            if os.path.exists('personal_users_data_backup.json'):
 
-                if os.path.getsize("data_of_users_backup.json") == 0:
-                    d = load_data_of_users()
-                    dump_data_of_users_backup(d)
+                if os.path.getsize("personal_users_data_backup.json") == 0:
+                    d = load_personal_users_data()
+                    dump_personal_users_data_backup(d)
                     return d
                 else:
-                    with open("data_of_users_backup.json", "r") as read_file:
+                    with open("personal_users_data_backup.json", "r") as read_file:
                         d = json.load(read_file)
                     return d
             else:
-                dump_data_of_users_backup({})
+                dump_personal_users_data_backup({})
                 return {}
         except PermissionError as _ex:
 
             pass
 
         except ValueError as _ex:
-            d = load_data_of_users()
-            dump_data_of_users_backup(d)
+            d = load_personal_users_data()
+            dump_personal_users_data_backup(d)
             return d
 
 
@@ -224,10 +225,10 @@ def dump_counter_of_orders_backup(d):
             pass
 
 
-def dump_data_of_users(d):
+def dump_personal_users_data(d):
     while True:
         try:
-            with open("data_of_users.json", "w") as write_file:
+            with open("personal_users_data.json", "w") as write_file:
                 json.dump(d, write_file)
             return
         except:
@@ -244,10 +245,10 @@ def dump_problems_of_users(up):
             pass
 
 
-def dump_data_of_users_backup(d):
+def dump_personal_users_data_backup(d):
     while True:
         try:
-            with open("data_of_users_backup.json", "w") as write_file:
+            with open("personal_users_data_backup.json", "w") as write_file:
                 json.dump(d, write_file)
             return
         except:

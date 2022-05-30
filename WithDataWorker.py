@@ -7,7 +7,7 @@ logging.basicConfig(
     format='%(asctime)s: %(message)s',
     level=logging.INFO,
     filename='sample.log')
-DATA_ITEMS = constants.DATA_ITEMS
+PERSONAL_DATA_ITEMS = constants.PERSONAL_DATA_ITEMS
 
 
 class WithDataWorker:
@@ -16,7 +16,7 @@ class WithDataWorker:
         get_new_user(message)
         change_user_dict(chat_id, user_dict)
         delete_user(chat_id)
-        update_data_of_users(self)
+        update_personal_users_data(self)
         process_new_user(message)
         get_firstname(message, new_user_dict)
         get_lastname(self, message, new_user_dict)
@@ -27,7 +27,7 @@ class WithDataWorker:
     """
 
     def __init__(self, bot, temporary_values_keeper):
-        self.data_of_users = MyFileWorker.load_data_of_users()  # Stores all personal data of users
+        self.personal_users_data = MyFileWorker.load_personal_users_data()  # Stores all personal data of users
         self.bot = bot
         self.temporary_values_keeper = temporary_values_keeper
 
@@ -43,25 +43,25 @@ class WithDataWorker:
     def change_user_dict(self, chat_id, user_dict):
         """Overwrites the changed data in the user's dictionary."""
         while True:
-            self.data_of_users[chat_id] = user_dict
-            DataWithBackupDumper.dump_data_of_users(self.data_of_users)
-            self.update_data_of_users()
-            if chat_id in self.data_of_users:
+            self.personal_users_data[chat_id] = user_dict
+            DataWithBackupDumper.dump_personal_users_data(self.personal_users_data)
+            self.update_personal_users_data()
+            if chat_id in self.personal_users_data:
                 break
             time.sleep(0.1)
 
     def delete_user(self, chat_id):
         """Removes a user's dictionary from the database."""
         print("hah")
-        while chat_id in self.data_of_users:
+        while chat_id in self.personal_users_data:
             print("some")
-            self.data_of_users.pop(chat_id)
-            DataWithBackupDumper.dump_data_of_users(self.data_of_users)
-            self.update_data_of_users()
+            self.personal_users_data.pop(chat_id)
+            DataWithBackupDumper.dump_personal_users_data(self.personal_users_data)
+            self.update_personal_users_data()
 
-    def update_data_of_users(self):
-        """Loads data from a json file into self.data_of_users"""
-        self.data_of_users = MyFileWorker.load_data_of_users()
+    def update_personal_users_data(self):
+        """Loads data from a json file into self.personal_users_data"""
+        self.personal_users_data = MyFileWorker.load_personal_users_data()
 
     def process_new_user(self, message, add_user_to_problems_f, user_get_f=None):
         new_user_dict = {"deleted": False}
@@ -78,7 +78,7 @@ class WithDataWorker:
             print('Имя:')
             print(message.text)
 
-            new_user_dict[DATA_ITEMS[0]] = message.text
+            new_user_dict[PERSONAL_DATA_ITEMS[0]] = message.text
             # time.sleep(1)
             self.bot.register_next_step_handler(
                 self.bot.send_message(str(message.chat.id), "Введите вашу фамилию: "),
@@ -95,7 +95,7 @@ class WithDataWorker:
             print('Фамилия:')
             print(message.text)
 
-            new_user_dict[DATA_ITEMS[1]] = message.text
+            new_user_dict[PERSONAL_DATA_ITEMS[1]] = message.text
             self.bot.register_next_step_handler(
                 self.bot.send_message(str(message.chat.id), "Введите ваше подразделение:"), self.get_subdivision,
                 new_user_dict, add_user_to_problems_f, user_get_f)
@@ -112,7 +112,7 @@ class WithDataWorker:
             print('Подразделение:')
             print(message.text)
 
-            new_user_dict[DATA_ITEMS[2]] = message.text
+            new_user_dict[PERSONAL_DATA_ITEMS[2]] = message.text
             self.bot.register_next_step_handler(
                 self.bot.send_message(str(message.chat.id), "Введите ваш адрес электронной почты:"), self.get_email,
                 new_user_dict, add_user_to_problems_f, user_get_f)
@@ -134,7 +134,7 @@ class WithDataWorker:
             print('Почта:')
             print(message.text)
 
-            new_user_dict[DATA_ITEMS[3]] = message.text
+            new_user_dict[PERSONAL_DATA_ITEMS[3]] = message.text
             self.bot.register_next_step_handler(
                 self.bot.send_message(str(message.chat.id), "Введите ваш телефонный номер для контакта: "),
                 self.get_phone_number, new_user_dict, add_user_to_problems_f, user_get_f)
@@ -148,7 +148,7 @@ class WithDataWorker:
         else:
             print('Номер:')
             print(message.text)
-            new_user_dict[DATA_ITEMS[4]] = message.text
+            new_user_dict[PERSONAL_DATA_ITEMS[4]] = message.text
 
             self.finish_process_new_user(message, new_user_dict, add_user_to_problems_f, user_get_f)
 

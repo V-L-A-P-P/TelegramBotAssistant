@@ -52,11 +52,11 @@ class MessagesHandler:
             self.bot.send_message(str(message.chat.id), PhrasesGenerator.get_info_text_for_operator())
         else:
             # If user data has already been received
-            if self.with_data_worker.data_of_users.get(
+            if self.with_data_worker.personal_users_data.get(
                     str(message.chat.id)) is not None \
-                    and self.with_data_worker.data_of_users.get(str(message.chat.id)).get("phonenumber") is not None:
+                    and self.with_data_worker.personal_users_data.get(str(message.chat.id)).get("phonenumber") is not None:
 
-                self.with_data_worker.update_data_of_users()
+                self.with_data_worker.update_personal_users_data()
                 self.bot.send_message(str(message.chat.id),
                                       PhrasesGenerator.get_hello_text_with_data(str(message.chat.id)))
                 self.with_problems_worker.get_new_problem(message)
@@ -101,9 +101,9 @@ class MessagesHandler:
         elif str(message.chat.id) == self.operator_id:  # If a message is received from an operator.
             self.bot.send_message(str(message.chat.id), PhrasesGenerator.get_info_text_for_operator())
 
-        elif self.with_data_worker.data_of_users.get(
+        elif self.with_data_worker.personal_users_data.get(
                 str(message.chat.id)) is not None \
-                and self.with_data_worker.data_of_users.get(str(message.chat.id)).get("phonenumber") is not None:
+                and self.with_data_worker.personal_users_data.get(str(message.chat.id)).get("phonenumber") is not None:
             if message.media_group_id is not None:  # If a group of photos was sent.
                 source_dict = self.with_problems_worker.get_photos_list_with_mediagroupid(str(message.media_group_id))
                 if source_dict is None:  # If no photos of this group have been added to the problems.
@@ -179,8 +179,8 @@ class MessagesHandler:
             self.bot.send_message(str(message.chat.id), PhrasesGenerator.get_info_text_for_operator())
 
         # If user data has already been received.
-        elif self.with_data_worker.data_of_users.get(str(message.chat.id)) is not None \
-                and self.with_data_worker.data_of_users.get(str(message.chat.id)).get("phonenumber") is not None:
+        elif self.with_data_worker.personal_users_data.get(str(message.chat.id)) is not None \
+                and self.with_data_worker.personal_users_data.get(str(message.chat.id)).get("phonenumber") is not None:
 
             if message.media_group_id is not None:  # If a group of photos was sent.
                 source_dict = self.with_problems_worker.get_photos_list_with_mediagroupid(str(message.media_group_id))
@@ -214,7 +214,7 @@ class MessagesHandler:
 
                 else:  # Otherwise, there is already a problem with the photos of this media group and we add photos there.
                     photo_dict = PhotosFromMessageGetter.get_photo_from_message(self.bot, message)
-                    self.with_data_worker.update_data_of_users()
+                    self.with_data_worker.update_personal_users_data()
                     dict_with_new_photos = self.with_problems_worker.problems_of_users[str(message.chat.id)][
                         source_dict['date_key']].copy()
                     dict_with_new_photos["photos"].append(photo_dict)
@@ -258,8 +258,8 @@ class MessagesHandler:
             self.bot.send_message(str(message.chat.id), PhrasesGenerator.get_info_text_for_operator())
 
         # If user data has not yet been received.
-        elif self.with_data_worker.data_of_users.get(str(message.chat.id)) is None \
-                or self.with_data_worker.data_of_users.get(str(message.chat.id)).get("phonenumber") is None:
+        elif self.with_data_worker.personal_users_data.get(str(message.chat.id)) is None \
+                or self.with_data_worker.personal_users_data.get(str(message.chat.id)).get("phonenumber") is None:
 
             if time.time() - self.temporary_values_keeper.temp_values[str(message.chat.id)]["last_message"] > 1:
                 self.bot.send_message(str(message.chat.id), PhrasesGenerator.get_hello_text_without_data())

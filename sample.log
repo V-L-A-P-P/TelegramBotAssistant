@@ -381,3 +381,42 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
  {'issolved': False, 'next_reminder': 1653679693, 'date': 1653679683, 'text': 'H', 'number': 1, 'photos': [], 'howPointsToSendToOperator': 3}
 2022-05-27 22:28:17,504: Problem added as number 2 by user 2008767674
  {'issolved': False, 'next_reminder': 1653679707, 'date': 1653679697, 'text': 'Ywy', 'number': 2, 'photos': [], 'howPointsToSendToOperator': 3}
+2022-05-30 22:58:25,189: User's personal data received (2008767674):
+{'deleted': False, 'firstname': 'Гуг', 'lastname': 'Гфгц', 'subdivision': 'Кгну', 'email': '. @', 'phonenumber': '3773'}
+2022-05-30 22:58:25,218: Infinity polling exception: module 'DataWithBackupDumper' has no attribute 'dump_personal_users_data'
+2022-05-30 22:58:25,239: Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 617, in infinity_polling
+    self.polling(none_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 664, in polling
+    self.__threaded_polling(non_stop, interval, timeout, long_polling_timeout, allowed_updates)
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 726, in __threaded_polling
+    raise e
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\__init__.py", line 686, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\util.py", line 135, in raise_exceptions
+    raise self.exception_info
+  File "C:\Users\apukh\AppData\Local\Programs\Python\Python310\lib\site-packages\telebot\util.py", line 87, in run
+    task(*args, **kwargs)
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\WithDataWorker.py", line 153, in get_phone_number
+    self.finish_process_new_user(message, new_user_dict, add_user_to_problems_f, user_get_f)
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\WithDataWorker.py", line 160, in finish_process_new_user
+    self.change_user_dict(str(message.chat.id), new_user_dict)
+  File "C:\Users\apukh\OneDrive\Документы\TelegramBotAssistant\WithDataWorker.py", line 47, in change_user_dict
+    DataWithBackupDumper.dump_personal_users_data(self.personal_users_data)
+AttributeError: module 'DataWithBackupDumper' has no attribute 'dump_personal_users_data'
+
+2022-05-30 22:59:30,871: User's personal data received (2008767674):
+{'deleted': False, 'firstname': 'Швг', 'lastname': 'Ышшы', 'subdivision': 'Швш', 'email': '. @', 'phonenumber': '3773'}
+2022-05-30 22:59:36,692: Problem added as number 0 by user 2008767674
+ {'issolved': False, 'next_reminder': 1653940786, 'date': 1653940776, 'text': 'Отсутствует', 'number': 0, 'photos': [{'name': 'AgACAgIAAxkBAAEBZ2RilSI-p-ZkgmcIOguUBgRtm1CupgACcLkxG8DVsUhCqiu-nTX40QEAAwIAA3kAAyQE.jpg', 'media_group_id': 'None'}], 'howPointsToSendToOperator': 3}
+2022-05-30 22:59:44,316: Photo by For 2008767674
+2022-05-30 22:59:44,528: Photo by For 2008767674
+2022-05-30 22:59:47,731: Problem added as number 1 by user 2008767674
+ {'issolved': False, 'next_reminder': 1653940797, 'date': 1653940787, 'text': 'Оаоа', 'number': 1, 'photos': [], 'howPointsToSendToOperator': 3}
+2022-05-30 22:59:57,087: Problem added as number 2 by user 2008767674
+ {'issolved': False, 'next_reminder': 1653940806, 'date': 1653940796, 'text': 'К6к7', 'number': 2, 'photos': [], 'howPointsToSendToOperator': 3}
+2022-05-30 23:00:03,038: Photo by For 2008767674
+2022-05-30 23:00:03,358: Photo by For 2008767674
+2022-05-30 23:00:06,395: Problem added as number 3 by user 2008767674
+ {'issolved': False, 'next_reminder': 1653940816, 'date': 1653940806, 'text': '\U0001f61c', 'number': 3, 'photos': [], 'howPointsToSendToOperator': 3}

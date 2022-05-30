@@ -6,7 +6,7 @@ logging.basicConfig(
     format='%(asctime)s: %(message)s',
     level=logging.INFO,
     filename='sample.log')
-DATA_ITEMS = constants.DATA_ITEMS
+PERSONAL_DATA_ITEMS = constants.PERSONAL_DATA_ITEMS
 
 
 def get_info_text_for_operator():
@@ -17,17 +17,17 @@ def get_info_text_for_operator():
 def get_new_problem_text_for_operator(chat_id, date_key):
     """Generates and returns text to describe the new problem to the operator."""
     problems_of_users = MyFileWorker.load_problems_of_users()
-    data_of_users = MyFileWorker.load_data_of_users()
-    if chat_id in data_of_users and chat_id in problems_of_users:
+    personal_users_data = MyFileWorker.load_personal_users_data()
+    if chat_id in personal_users_data and chat_id in problems_of_users:
         date_list = date_key.split(' ')
         text = date_list[0] + "\n" + date_list[1] \
                + "\nДобавлено новое обращение:\n" + "\n" \
                + "Номер заявки: " + str(problems_of_users[chat_id][date_key]['number']) \
                + "\nСотрудник :\n" \
-               + data_of_users[chat_id]["firstname"] + " " + data_of_users[chat_id]["lastname"] \
-               + "\nПодразделение: " + data_of_users[chat_id]["subdivision"] \
-               + "\nАдрес почты: " + data_of_users[chat_id]["email"] \
-               + "\nТелефон: " + data_of_users[chat_id]["phonenumber"] \
+               + personal_users_data[chat_id]["firstname"] + " " + personal_users_data[chat_id]["lastname"] \
+               + "\nПодразделение: " + personal_users_data[chat_id]["subdivision"] \
+               + "\nАдрес почты: " + personal_users_data[chat_id]["email"] \
+               + "\nТелефон: " + personal_users_data[chat_id]["phonenumber"] \
                + "\n\nТекст обращения:\n" \
                + problems_of_users[chat_id][date_key]["text"]
         return text
@@ -38,17 +38,17 @@ def get_new_problem_text_for_operator(chat_id, date_key):
 def get_reminder_text(chat_id, date_key):
     """Generates and returns text to remind the operator of outstanding tasks."""
     problems_of_users = MyFileWorker.load_problems_of_users()
-    data_of_users = MyFileWorker.load_data_of_users()
-    if chat_id in data_of_users and chat_id in problems_of_users:
+    personal_users_data = MyFileWorker.load_personal_users_data()
+    if chat_id in personal_users_data and chat_id in problems_of_users:
         date_list = date_key.split(' ')
         text = "Напоминаем, что до сих пор не решена проблема:  \n" \
                + date_list[0] + '\n' + date_list[1] + '\n' \
                + "Номер заявки: " + str(problems_of_users[chat_id][date_key]['number']) \
                + "\n\nСотрудник :\n" \
-               + data_of_users[chat_id]["firstname"] + " " + data_of_users[chat_id]["lastname"] \
-               + "\nПодразделение: " + data_of_users[chat_id]["subdivision"] \
-               + "\nАдрес почты: " + data_of_users[chat_id]["email"] \
-               + "\nТелефон: " + data_of_users[chat_id]["phonenumber"] \
+               + personal_users_data[chat_id]["firstname"] + " " + personal_users_data[chat_id]["lastname"] \
+               + "\nПодразделение: " + personal_users_data[chat_id]["subdivision"] \
+               + "\nАдрес почты: " + personal_users_data[chat_id]["email"] \
+               + "\nТелефон: " + personal_users_data[chat_id]["phonenumber"] \
                + "\n\nТекст обращения:\n" \
                + problems_of_users[chat_id][date_key]["text"]
         return text
@@ -58,14 +58,14 @@ def get_reminder_text(chat_id, date_key):
 
 def get_hello_text_with_data(chat_id):
     """Generates and returns a welcome text if user data has already been received."""
-    data_of_users = MyFileWorker.load_data_of_users()
-    if chat_id in data_of_users:
+    personal_users_data = MyFileWorker.load_personal_users_data()
+    if chat_id in personal_users_data:
         text = "Здравствуйте!\nВаши данные уже указаны:\n" + \
-               data_of_users[chat_id][DATA_ITEMS[0]] + "\n" + \
-               data_of_users[chat_id][DATA_ITEMS[1]] + "\n" + \
-               data_of_users[chat_id][DATA_ITEMS[2]] + "\n" + \
-               data_of_users[chat_id][DATA_ITEMS[3]] + "\n" + \
-               data_of_users[chat_id][DATA_ITEMS[4]] + "\n"
+               personal_users_data[chat_id][PERSONAL_DATA_ITEMS[0]] + "\n" + \
+               personal_users_data[chat_id][PERSONAL_DATA_ITEMS[1]] + "\n" + \
+               personal_users_data[chat_id][PERSONAL_DATA_ITEMS[2]] + "\n" + \
+               personal_users_data[chat_id][PERSONAL_DATA_ITEMS[3]] + "\n" + \
+               personal_users_data[chat_id][PERSONAL_DATA_ITEMS[4]] + "\n"
         return text
     else:
         return ""

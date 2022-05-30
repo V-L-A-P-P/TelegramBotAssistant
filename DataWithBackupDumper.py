@@ -7,9 +7,9 @@ logging.basicConfig(
     filename='sample.log')
 
 
-def dump_data_of_users(data_of_users):
-    MyFileWorker.dump_data_of_users(data_of_users)
-    MyFileWorker.dump_data_of_users_backup(data_of_users)
+def dump_personal_users_data(personal_users_data):
+    MyFileWorker.dump_personal_users_data(personal_users_data)
+    MyFileWorker.dump_personal_users_data_backup(personal_users_data)
 
 
 def dump_problems_of_users(problems_of_users):
